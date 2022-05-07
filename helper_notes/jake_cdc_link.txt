@@ -9,3 +9,5 @@ Idea is to:
 2. specify desired header cols, then read in only those cols
 3. figure out which rows to keep/skip
 4. read in selected subset
+
+TODO: also get socioeconmic data by census tract from Census to compare wealthy/poor tract exposure
