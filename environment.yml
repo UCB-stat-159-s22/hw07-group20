@@ -1,0 +1,19 @@
+name: invlyr
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - IPython
+  - ipykernel
+  - numpy
+  - pandas #=1.4.1
+  - xarray
+  - geopy #=2.2.0
+  - requests #=2.27.1
+  - requests_cache #=0.9.3
+  - matplotlib
+  - seaborn
+  - gcsfs
+  - voila
+  # pip:
+    # - thingspeak
