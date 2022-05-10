@@ -1,4 +1,4 @@
-name: invlyr
+name: cesm
 channels:
   - conda-forge
 dependencies:
@@ -8,11 +8,14 @@ dependencies:
   - numpy
   - pandas
   - dask
-  - hdf4
-  - hdf5
+  - xarray
+  - zarr
   - lzo
+  - gcsfs
+  - cartopy
+  - nc-time-axis
   - matplotlib
   - seaborn
+  - scipy
   pip:
-    - sodapy
-    - h5py
+    - cftime

@@ -84,7 +84,7 @@ def build_data(df, mip, exp, writeout=False):
             ds[var] = ds_temp[var]
 
     if writeout:
-        ds.to_zarr(f'data/{exp}.zarr', mode='w')
+        ds.to_zarr(f'../data/{exp}.zarr', mode='w')
     else:
         return ds
 

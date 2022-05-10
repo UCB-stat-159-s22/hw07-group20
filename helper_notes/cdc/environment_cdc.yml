@@ -1,4 +1,4 @@
-name: invlyr
+name: cdc
 channels:
   - conda-forge
 dependencies:
@@ -8,14 +8,11 @@ dependencies:
   - numpy
   - pandas
   - dask
-  - xarray
-  - zarr
+  - hdf4
+  - hdf5
   - lzo
-  - gcsfs
-  - cartopy
-  - nc-time-axis
   - matplotlib
   - seaborn
-  - scipy
   pip:
-    - cftime
+    - sodapy
+    - h5py
