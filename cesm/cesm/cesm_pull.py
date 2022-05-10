@@ -122,7 +122,27 @@ def data_eval(df):
 
     xdf = pd.DataFrame.from_records(x).T
     xdf = xdf.sort_values('zstore')
-    
+
     return xdf[cols]
 
 
+##########################################################################
+
+def model_pull(filts=None, writeout=True):
+    """
+    
+    """
+    ncar_models = find_available_data(filts)
+
+    model_groups = pd.DataFrame({
+        '# variables': ncar_models.groupby(['activity_id', 'experiment_id']).size()
+    })
+
+    for grp in model_groups.index:
+        mip = grp[0]
+        exp = grp[1]
+        build_data(ncar_models, mip, exp, writeout=writeout)
+        print(f'Completed downloading {grp}!')
+
+
+##########################################################################
