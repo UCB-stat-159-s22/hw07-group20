@@ -2,7 +2,7 @@ name: cesm
 channels:
   - conda-forge
 dependencies:
-  - python=3.10
+  - python # =3.10
   - IPython
   - ipykernel
   - numpy
@@ -17,5 +17,5 @@ dependencies:
   - matplotlib
   - seaborn
   - scipy
-  pip:
+  - pip:
     - cftime
