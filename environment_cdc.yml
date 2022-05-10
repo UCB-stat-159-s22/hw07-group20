@@ -1,0 +1,18 @@
+name: invlyr
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - IPython
+  - ipykernel
+  - numpy
+  - pandas
+  - dask
+  - hdf4
+  - hdf5
+  - lzo
+  - matplotlib
+  - seaborn
+  pip:
+    - sodapy
+    - h5py

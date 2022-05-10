@@ -6,14 +6,16 @@ dependencies:
   - IPython
   - ipykernel
   - numpy
-  - pandas #=1.4.1
+  - pandas
+  - dask
   - xarray
-  - geopy #=2.2.0
-  - requests #=2.27.1
-  - requests_cache #=0.9.3
+  - zarr
+  - lzo
+  - gcsfs
+  - cartopy
+  - nc-time-axis
   - matplotlib
   - seaborn
-  - gcsfs
-  - voila
-  # pip:
-    # - thingspeak
+  - scipy
+  pip:
+    - cftime
