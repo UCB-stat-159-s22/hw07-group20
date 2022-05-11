@@ -262,9 +262,49 @@
 <h1>Main narrative notebook<a class="headerlink" href="#main-narrative-notebook" title="Permalink to this headline">¶</a></h1>
 <p>by Group 20 (Michael Milazzo, Jacob Jossart, and Kaichi Inoue)</p>
 <p>Hello! Our group is currently on the EDA phase of this project. Please review our current progress on the notebooks linked in the left menu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../logo.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_3_0.png" src="../_images/main_3_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/weights.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_4_0.png" src="../_images/main_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/hist_temp_timeline.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_5_0.png" src="../_images/main_5_0.png" />
+</div>
+</div>
 <div class="section" id="author-contributions">
 <h2>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h2>
-<p>…</p>
+<p><strong>Michael Milazzo:</strong> Michael built the infrastructure for this project, including the environment, Makefile, Jupyter Book, Binder image, and <code class="docutils literal notranslate"><span class="pre">cesm</span></code> package. He wrote notebooks for data collection and cleaning, as well as some exploratory data analysis (EDA).</p>
+<p><strong>Jacob Jossart:</strong> Jake created a new branch to conduct EDA on North America. This work was saved in a notebook that became part of the Jupyter Book.</p>
+<p><strong>Kaichi Inoue:</strong> Kaichi downloaded the data and performed some local EDA. He attended all Zoom meetings and participated in discussions about the project.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -281,16 +321,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "cesm"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "cesm",
             path: "./notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'cesm'</script>
 
               </div>
               
