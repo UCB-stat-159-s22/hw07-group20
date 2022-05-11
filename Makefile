@@ -23,5 +23,4 @@ html-hub :
 .PHONY : clean
 clean :
 	rm -r figures/*
-	rm -r audio/*
 	rm -rf _build

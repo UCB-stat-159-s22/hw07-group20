@@ -2,4 +2,10 @@
 
 format: jb-book
 root: main
-
+parts:
+- caption: Data Selection
+  chapters:
+  - file: notebooks/Pangeo_data_selection
+- caption: Exploratory Data Analysis
+  chapters:
+  - file: notebooks/CESM_EDA

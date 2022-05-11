@@ -6,33 +6,6 @@ import pandas as pd
 
 ##########################################################################
 
-def agg_ds(ds, aggfunc, dims, roll={}):
-    """
-    
-    """
-    if isinstance(ds, xr.core.weighted.DatasetWeighted):
-        # # ds_agg = ds.mean(('lat', 'lon'))
-        # if pd.isnull(dims):
-        #     return ds_agg
-        return ds.mean(dims)
-
-
-    else:
-        ds_agg = ds.copy()
-
-    if len(roll.keys()) > 0:
-        ds_agg = ds_agg.roll(roll)
-    else:
-        if isinstance(dims, str):
-            ds_agg = ds_agg.groupby(dims).reduce(aggfunc)
-        else:
-            ds_agg = ds_agg.reduce(aggfunc, dims)
-
-    return ds_agg
-
-
-##########################################################################
-
 def dictorize(func, modeldict):
     """
     performs a function on all provided 
@@ -98,8 +71,45 @@ def dictorize(func, modeldict):
                 v['roll'],
             )
             d[k] = ds_temp.copy()
+            
+    if func == 'diff':
+        d = {}
+        
+        for k, v in modeldict.items():
+            if k != 'hist':
+                d[k] = base_sub(
+                    v['data'], 
+                    modeldict['hist']['data']
+                )
 
     return d
+
+
+##########################################################################
+
+def agg_ds(ds, aggfunc, dims, roll={}):
+    """
+    
+    """
+    if isinstance(ds, xr.core.weighted.DatasetWeighted):
+        # # ds_agg = ds.mean(('lat', 'lon'))
+        # if pd.isnull(dims):
+        #     return ds_agg
+        return ds.mean(dims)
+
+
+    else:
+        ds_agg = ds.copy()
+
+    if len(roll.keys()) > 0:
+        ds_agg = ds_agg.roll(roll)
+    else:
+        if isinstance(dims, str):
+            ds_agg = ds_agg.groupby(dims).reduce(aggfunc)
+        else:
+            ds_agg = ds_agg.reduce(aggfunc, dims)
+
+    return ds_agg
 
 
 ##########################################################################
@@ -158,3 +168,17 @@ def nest_dicts(d, d_args={}):
 
 ##########################################################################
 
+def base_sub(ds, hist):
+    """
+    ds has 3 dims (time included)
+    hist has 2 dims (lat, lon... time only 1 value)
+    """
+    ds_cols = list(ds)
+    hist_cols = list(hist)
+    
+    cols = list(set(ds_cols).intersection(set(hist_cols)))
+    
+    return ds[cols] - hist[cols]
+    
+
+##########################################################################
