@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework No 7 - Final Project: original data analysis &#8212; ... (HW7)</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">... (HW7)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="main.html">
+   Main narrative notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Selection
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/Pangeo_data_selection.html">
+   Accessing Pangeo Climate Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exploratory Data Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/CESM_EDA.html">
+   CESM Cleaning and Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/hw07-description.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group20"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-deliverables">
+   Project deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functional-structure-of-your-code-and-testing">
+     Functional structure of your code and testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-notebooks-and-supporting-code">
+     Analysis notebooks and supporting code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-narrative-notebook">
+     Main narrative notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reproducibility-support">
+     Reproducibility support
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-repository-practices">
+     Good repository practices
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grading">
+     Grading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Homework No 7 - Final Project: original data analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-deliverables">
+   Project deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functional-structure-of-your-code-and-testing">
+     Functional structure of your code and testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-notebooks-and-supporting-code">
+     Analysis notebooks and supporting code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-narrative-notebook">
+     Main narrative notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reproducibility-support">
+     Reproducibility support
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-repository-practices">
+     Good repository practices
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grading">
+     Grading
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="homework-no-7-final-project-original-data-analysis">
+<h1>Homework No 7 - Final Project: original data analysis<a class="headerlink" href="#homework-no-7-final-project-original-data-analysis" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Statistics 159/259, Spring 2022</strong></p></li>
+<li><p><strong>Due Friday 05/11/2022, 2:00PM PT</strong></p></li>
+<li><p>Prof. F. Pérez and GSI F. Sapienza, Department of Statistics, UC Berkeley.</p></li>
+<li><p>This assignment is worth a maximum of <strong>100 points</strong>.</p></li>
+<li><p>Assignment type: <strong>group</strong>.</p></li>
+</ul>
+<p>This project will be a free-form analysis; your goal is to develop a complete analysis of a dataset that you find online, ask some interesting questions from it, and share your complete set of results in a well documented manner, using the practices we’ve been developing during the course.</p>
+<div class="section" id="project-deliverables">
+<h2>Project deliverables<a class="headerlink" href="#project-deliverables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p>Depending on the size of your data, you may choose to include it in the repository or not (use your judgment - up to a few dozen megabytes it’s not a problem, something in the Gigabyte range is too big to put into a repo). If the data isn’t  included locally, your code should access it remotely and cache it adequately for subsequent executions.  If you don’t include the data in the repository, consider the implications of doing so for long-term reproducibility: is the source you are using a reliable one? Will it be there in 10 years? You can also explore other ways of storing datasets, such as Zenodo.</p>
+</div>
+<div class="section" id="functional-structure-of-your-code-and-testing">
+<h3>Functional structure of your code and testing<a class="headerlink" href="#functional-structure-of-your-code-and-testing" title="Permalink to this headline">¶</a></h3>
+<p>You should identify steps amenable to be put into standalone functions and write a proper function for those, with a complete docstring describing their inputs, as I’ve shown in some of our examples (the Numpy project offers <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/example_numpy.html">detailed examples of high-quality docstrings</a>).</p>
+<p>You may choose to put analysis functions into a pure python file that you import separately or in the Jupyter notebook itself. Make the choice that you find cleanest/most fluid for your workflow.</p>
+<p>Whether you do it in a notebook or python scripts, make sure to write at least a few test for utility functions that you write.</p>
+<p><strong>Note:</strong> this is a <em>requirement</em>. You must structure your code to include at least two functions that you import from a separate python script, that you test and document properly (feel free to use more as your analysis dictates).</p>
+</div>
+<div class="section" id="analysis-notebooks-and-supporting-code">
+<h3>Analysis notebooks and supporting code<a class="headerlink" href="#analysis-notebooks-and-supporting-code" title="Permalink to this headline">¶</a></h3>
+<p>Break down your analysis into as many notebooks as is reasonable for convenient reading and execution. There is no hard and fast rule for this, just as there isn’t for how many paragraphs or figures a good scientific paper should have. You should consider readability, execution time, total notebook length, etc, as criteria in your decisions.  <a class="reference external" href="http://blog.wolfram.com/2017/11/14/what-is-a-computational-essay">This essay</a> by Stephen Wolfram, the creator of Mathematica (part of the inspiration for the Jupyter Notebook) has some good thoughts on what makes a well written computational narrative.</p>
+<p>Consider how to “chain” your analyses with intermediate results being stored so they don’t need to be recomputed from scratch each time. Also, be mindful of saving key figures you may want to reuse in your report to disk, so the main narrative notebook can reuse them for display and discussion.  Look back at the instructions for project 2 if you need a refresher.</p>
+</div>
+<div class="section" id="main-narrative-notebook">
+<h3>Main narrative notebook<a class="headerlink" href="#main-narrative-notebook" title="Permalink to this headline">¶</a></h3>
+<p>Write a <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> notebook that summarizes and discusses your results. It can contain figures referenced from disk or simple summary information (for example if you want to display part of a dataframe) from variables read from disk, but <em>no significant computations at all</em>. Think of this as your “paper”.</p>
+<p>Discuss the assumptions you can make about the data to justify your analysis.  You have no control over the original data acquisition and measurement, and for many of you this project will likely fall under the broad purview of <em>Exploratory Data Analysis</em>.  If you propose any statistical hypothesis/model in your analysis, discuss your justifications, considering how the data was acquired. We are not expecting you to spend a lot of time dealing with how to best model or describe the data. Try to identify a few scientifically interesting but simple questions you can address and then focus in writting the code for such analysis.</p>
+<p><strong>Author Contributions section:</strong> your <code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> notebook should contain, at the end, a brief section titled <em>Author Contributions</em>. This section should indicate, for each team member, what they did in the project. It doesn’t have to be a long, detailed story, a few sentences per person should suffice.  All team members must agree to the language in this section.  (By the way, this is standard practice in many scientific journals).  While in principle the project grade is the same for all team members, we reserve the right to lower the grade of anyone who doesn’t contribute to the team effort.</p>
+</div>
+<div class="section" id="reproducibility-support">
+<h3>Reproducibility support<a class="headerlink" href="#reproducibility-support" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Environment: like in Projects #1 and #2, provide an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file that creates an environment with all necessary dependencies to run your analysis. We recommend you to create a new virtual environment with this project that you can update as you include new libraries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code>: you will also create a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> with <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code> targets. The <code class="docutils literal notranslate"><span class="pre">env</span></code> target should make the environment with all necessary libraries, <code class="docutils literal notranslate"><span class="pre">all</span></code> should run all notebooks.</p></li>
+<li><p>Don’t forget to control your random seeds for anything that has a stochastic component.</p></li>
+</ul>
+</div>
+<div class="section" id="good-repository-practices">
+<h3>Good repository practices<a class="headerlink" href="#good-repository-practices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Work as a team. Work collaborativelly with your team members by adding commit messages and working in different branches.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code>: Write a short self-contained description of the project, including the scientific motivation and the analysis you conducted. Include all relevant information about how to run the analysis, including installation steps, testing and automatization. A good README should be short but also provide all the useful information to help the user to start running the analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>: you should explicitly state which licensing conditions apply to your work (see <a class="reference external" href="https://help.github.com/articles/adding-a-license-to-a-repository/">Github’s help</a>). I strongly suggest looking at Victoria Stodden’s <a class="reference external" href="https://web.stanford.edu/~vcs/papers/ijclp-STODDEN-2009.pdf">ENABLING REPRODUCIBLE RESEARCH:
+LICENSING SCIENTIFIC INNOVATION</a>. For a short summary, her <a class="reference external" href="https://web.stanford.edu/~vcs/talks/VictoriaStoddenCommuniaJune2009-2.pdf">slides</a> can be useful. She suggests a “Reproducible research standard” that licenses code, data and text/media materials in comparable terms that maximize resharing potential while providing due credit guarantees for the original authors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: provide a git ignore file that prevents the automatic inclusion of unwanted files.  This also helps you avoid noisy <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> output that lists things you know you won’t actually want to put under git’s control.</p></li>
+</ul>
+</div>
+<div class="section" id="grading">
+<h3>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h3>
+<p>We will evaluate the project as a whole. All the previous elements play a central role for the purposes of this class and we expect to see all of them included in the final deliverable. The project is worth 100 points, that we will add to the final grade with all the previous homeworks of the course.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Group 20 (Michael Milazzo, Jacob Jossart, and Kaichi Inoue)<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
