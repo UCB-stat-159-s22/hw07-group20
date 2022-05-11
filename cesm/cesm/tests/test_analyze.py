@@ -1,6 +1,8 @@
 import xarray as xr
 from cesm import cesm_analyze as ca
+import os
 
+# os.chdir('../../')
 
 ##########################################################################
 # Declare clobal variables
@@ -11,24 +13,17 @@ model_names = ['hist'] + s_names
 
 ##########################################################################
 
-def test_something1():
+def test_import():
     dtest = ca.dictorize(
         func = xr.open_zarr, 
         modeldict = dict(zip(model_names, ['historical']+scenarios)),
     )
-    
-    assert True
-    
-    
-# dtest = dictorize(
-#     func = xr.open_zarr, 
-#     modeldict = dict(zip(model_names, ['historical']+scenarios)),
-# )
-###########################################################################
-# dtest_w = dictorize(
-#     func = 'weight', 
-#     modeldict = dtest,
-# )
+
+    assert len(dtest) == 5
+    assert list(dtest) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest['hist'], xr.Dataset)
+
+
 ###########################################################################
 # dtest_s = dictorize(
 #     func = 'sel',
