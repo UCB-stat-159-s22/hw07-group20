@@ -22,7 +22,7 @@ html:
   use_repository_button: true
 
 launch_buttons:
-  binderhub_html: https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group20/HEAD?labpath=main.ipynb
+  binderhub_html: https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group20/HEAD?labpath=notebooks%2Fmain.ipynb
 
 # sphinx:
 #   config:
