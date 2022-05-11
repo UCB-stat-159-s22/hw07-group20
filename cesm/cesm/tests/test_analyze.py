@@ -1,22 +1,30 @@
-import xarray as xr
-from cesm import cesm_analyze as ca
 import os
+import pytest
+import xarray as xr
+import numpy as np
 
-# os.chdir('../../')
+from cesm import cesm_analyze as ca
+
+# change temp dir one folder down for correct relative path testing
+os.chdir('cesm')
+
 
 ##########################################################################
-# Declare clobal variables
-scenarios = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
-s_names = [i[1:4] for i in scenarios]
-model_names = ['hist'] + s_names
+# Declare global variables
+
+# https://docs.pytest.org/en/stable/how-to/capture-warnings.html#warnings
+# turns all warnings into errors for this module
+pytestmark = pytest.mark.filterwarnings("ignore::DeprecationWarning")
 
 
 ##########################################################################
-
 def test_import():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
     dtest = ca.dictorize(
-        func = xr.open_zarr, 
-        modeldict = dict(zip(model_names, ['historical']+scenarios)),
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
     )
 
     assert len(dtest) == 5
@@ -25,62 +33,167 @@ def test_import():
 
 
 ###########################################################################
-# dtest_s = dictorize(
-#     func = 'sel',
-#     modeldict = nest_dicts(
-#         dtest, 
-#         ##{k: {'args': {'lat': slice(0, 20)}} for k in model_names},
-#         {'args': {'lat': slice(0, 20)}},
-#     ),
-# )
+def test_sel():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_s = ca.dictorize(
+        func = 'sel',
+        modeldict = ca.nest_dicts(
+            dtest,
+            {'args': {'lat': slice(0, 20)}},
+        )
+    )
+
+    assert len(dtest_s) == 5
+    assert list(dtest_s) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_s['hist'], xr.Dataset)
+
+
 ###########################################################################
-# dtest_v = dictorize(
-#     func = 'var',
-#     modeldict = nest_dicts(
-#         dtest, 
-#         {'var': 'tas'},
-#     ),
-# )
+def test_var():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_v = ca.dictorize(
+        func = 'var',
+        modeldict = ca.nest_dicts(
+            dtest,
+            {'var': 'tas'},
+        )
+    )
+
+    assert len(dtest_v) == 5
+    assert list(dtest_v) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_v['hist'], xr.DataArray)
+
+
 ###########################################################################
-# dtest_a = dictorize(
-#     func = 'agg',
-#     modeldict = nest_dicts(
-#         dtest,
-#         {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {}},
-#     ),
-# )
+def test_weight():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_w = ca.dictorize(
+        func = 'weight', 
+        modeldict = dtest,
+    )
+
+    assert len(dtest_w) == 5
+    assert list(dtest_w) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_w['hist'], xr.core.weighted.DatasetWeighted)
+
+
 ###########################################################################
-# dtest_a1 = dictorize(
-#     func = 'agg',
-#     modeldict = nest_dicts(
-#         dtest,
-#         {'grps': 'time.year', 'aggfunc': np.nanmean, 'roll': {}},
-#     ),
-# )
+def test_agg1():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_a = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            dtest,
+            {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {}},
+        )
+    )
+
+    assert len(dtest_a) == 5
+    assert list(dtest_a) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_a['hist'], xr.Dataset)
+
+
 ###########################################################################
-# dtest_a2 = dictorize(
-#     func = 'agg',
-#     modeldict = nest_dicts(
-#         dtest_w,
-#         {'grps': 'time.year', 'aggfunc': np.nanmean, 'roll': {}},
-#     ),
-# )
+def test_agg2():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_a = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            dtest,
+            {'grps': 'time.year', 'aggfunc': np.nanmean, 'roll': {}},
+        )
+    )
+
+    assert len(dtest_a) == 5
+    assert list(dtest_a) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_a['hist'], xr.Dataset)
+
+
 ###########################################################################
-# dtest_a3 = dictorize(
-#     func = 'agg',
-#     modeldict = nest_dicts(
-#         dtest,
-#         {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {}},
-#     ),
-# )
+def test_agg3():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_w = ca.dictorize(
+        func = 'weight', 
+        modeldict = dtest,
+    )
+
+    dtest_a = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            dtest_w,
+            {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {}},
+        )
+    )
+
+    assert len(dtest_a) == 5
+    assert list(dtest_a) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_a['hist'], xr.Dataset)
+
+
 ###########################################################################
-# dtest_a4 = dictorize(
-#     func = 'agg',
-#     modeldict = nest_dicts(
-#         dtest,
-#         {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {'time': 120}}, # time only works in original units
-#     ),
-# )
+def test_agg4():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    dtest_a = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            dtest,
+            {'grps': ['lat', 'lon'], 'aggfunc': np.nanmean, 'roll': {'time': 120}},
+        )
+    )
+
+    assert len(dtest_a) == 5
+    assert list(dtest_a) == ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+    assert isinstance(dtest_a['hist'], xr.Dataset)
+
+
 ###########################################################################
-# print(dtest_a4.keys())
-# dtest_a4['hist']
+
