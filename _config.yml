@@ -15,7 +15,7 @@ only_build_toc_files: true
 # Information about where the book exists on the web
 repository:
   url: https://github.com/UCB-stat-159-s22/hw07-group20
-  branch: gh-pages
+  branch: main
 
 # Add GitHub buttons to your book
 html:
@@ -24,7 +24,7 @@ html:
 launch_buttons:
   binderhub_html: https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group20/HEAD?labpath=main.ipynb
 
-sphinx:
-  config:
-    exclude_patterns:
-      - README.md
+# sphinx:
+#   config:
+#     exclude_patterns:
+#       - README.md
