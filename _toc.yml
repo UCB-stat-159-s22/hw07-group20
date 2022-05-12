@@ -9,3 +9,4 @@ parts:
 - caption: Exploratory Data Analysis
   chapters:
   - file: notebooks/CESM_EDA
+  - file: notebooks/United_States
