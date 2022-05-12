@@ -1,0 +1,224 @@
+{
+    "metadata": {
+        ".zattrs": {},
+        ".zgroup": {
+            "zarr_format": 2
+        },
+        "hurs/.zarray": {
+            "chunks": [
+                1,
+                192,
+                288
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                1,
+                192,
+                288
+            ],
+            "zarr_format": 2
+        },
+        "hurs/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "year",
+                "lat",
+                "lon"
+            ]
+        },
+        "huss/.zarray": {
+            "chunks": [
+                1,
+                192,
+                288
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                1,
+                192,
+                288
+            ],
+            "zarr_format": 2
+        },
+        "huss/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "year",
+                "lat",
+                "lon"
+            ]
+        },
+        "lat/.zarray": {
+            "chunks": [
+                192
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                192
+            ],
+            "zarr_format": 2
+        },
+        "lat/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "lat"
+            ],
+            "axis": "Y",
+            "bounds": "lat_bnds",
+            "standard_name": "latitude",
+            "title": "Latitude",
+            "type": "double",
+            "units": "degrees_north",
+            "valid_max": 90.0,
+            "valid_min": -90.0
+        },
+        "lon/.zarray": {
+            "chunks": [
+                288
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f8",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                288
+            ],
+            "zarr_format": 2
+        },
+        "lon/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "lon"
+            ],
+            "axis": "X",
+            "bounds": "lon_bnds",
+            "standard_name": "longitude",
+            "title": "Longitude",
+            "type": "double",
+            "units": "degrees_east",
+            "valid_max": 360.0,
+            "valid_min": 0.0
+        },
+        "pr/.zarray": {
+            "chunks": [
+                1,
+                192,
+                288
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                1,
+                192,
+                288
+            ],
+            "zarr_format": 2
+        },
+        "pr/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "year",
+                "lat",
+                "lon"
+            ]
+        },
+        "tas/.zarray": {
+            "chunks": [
+                1,
+                192,
+                288
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<f4",
+            "fill_value": "NaN",
+            "filters": null,
+            "order": "C",
+            "shape": [
+                1,
+                192,
+                288
+            ],
+            "zarr_format": 2
+        },
+        "tas/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "year",
+                "lat",
+                "lon"
+            ]
+        },
+        "year/.zarray": {
+            "chunks": [
+                1
+            ],
+            "compressor": {
+                "blocksize": 0,
+                "clevel": 5,
+                "cname": "lz4",
+                "id": "blosc",
+                "shuffle": 1
+            },
+            "dtype": "<i8",
+            "fill_value": null,
+            "filters": null,
+            "order": "C",
+            "shape": [
+                1
+            ],
+            "zarr_format": 2
+        },
+        "year/.zattrs": {
+            "_ARRAY_DIMENSIONS": [
+                "year"
+            ]
+        }
+    },
+    "zarr_consolidated_format": 1
+}

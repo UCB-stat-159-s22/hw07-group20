@@ -128,6 +128,8 @@ def plot_map(
 
 
 ##########################################################################
+from matplotlib.offsetbox import AnchoredText
+
 def plot_facetmap(
     ds,
     var,
@@ -138,13 +140,13 @@ def plot_facetmap(
     xticks=list(range(-180, 181, 60)),
     yticks=list(range(-90, 91, 30)),
     corient='horizontal',
-    cpad=0.1,
+    cpad=0.07,
     axlabcoords=(-170, -40), # in lat, lon
     axlabsize=10,
     title='', 
     titlesize=18,
     titlex=0.5,
-    titley=1,
+    titley=0.85,
     fs=(10,10),
     extent=(),
     use_coasts=True,
@@ -180,6 +182,8 @@ def plot_facetmap(
         'orientation': corient,
         'aspect': 20,
         'label': clab,
+        # 'labelsize': 16,
+        # 'size': 20,
         'spacing': 'proportional',
         'pad': cpad, # distance between cbar and ax
     }
@@ -197,6 +201,7 @@ def plot_facetmap(
         col = lvl,
         col_wrap = 2,
         transform = proj,
+        # robust=True,
         figsize = fs,
         cbar_kwargs = cbar_kws,
         subplot_kws = subplot_kws,
@@ -205,16 +210,29 @@ def plot_facetmap(
     
     ################################
     # Formatting
+
     for model, ax in zip(models, dplot.axes.flatten()):
-                
+        if model == 'sp1':
+            xs = ''
+            ys = yticks
+        if model == 'sp2':
+            xs = ''
+            ys = ''
+        if model == 'sp3':
+            xs = xticks
+            ys = yticks
+        if model == 'sp5':
+            xs = xticks
+            ys = ''
+
         format_ax(
             ax,
-            xticks, yticks,
+            xs, ys,
             extent,
             use_coasts,
             use_states,
         )
-        
+
         # Get scenario label for subplot
         # (r'$' included to reconstruct LaTeX after splicing)
         m_name = modeldict[model]['name']
@@ -223,22 +241,22 @@ def plot_facetmap(
 
         axlab = '{}\n{}'.format(scenario, sc_rcp)
 
-        (ax
-         .annotate(
-             axlab,
-             axlabcoords,
-             ha = 'left',
-             va = 'center',
-             fontsize = axlabsize,
-         )
-         .set(
-             bbox = {
-                 'facecolor': 'white',
-                 'edgecolor': 'black',
-             }
-         )
+        ax.add_artist(
+            AnchoredText(
+                axlab, 
+                loc='lower left',
+            )
         )
-    
+
+    dplot.set_xlabels('longitude [degrees]')
+    dplot.set_ylabels('latitude [degrees]')
+
+    plt.subplots_adjust(
+        left=0, right=0.99,
+        bottom=0.25, top=0.99,
+        wspace=0.1, hspace=-0.4,
+    )
+
     plt.suptitle(
         title, 
         x = titlex, y = titley,
@@ -253,8 +271,7 @@ def plot_facetmap(
             print('Saving figure...')
             plt.savefig(path, **save_kwargs)
     if fig_out:
-        return fig
-       
+        return dplot
 
 
 
@@ -285,14 +302,12 @@ def format_ax(
         ax.coastlines("110m", color="k")
     if use_states:
         ax.add_feature(cfeature.STATES.with_scale("110m"))
-
-    ax.set_xticks(xticks)
-    ax.set_yticks(yticks)
+    
+    if len(xticks)>0:
+        ax.set_xticks(xticks)
+    if len(yticks)>0:
+        ax.set_yticks(yticks)
     ax.set_title(title, x=titlex, y=titley, fontsize=titlesize)
-    
-    # return ax
-    
-
 
 
 ##########################################################################
