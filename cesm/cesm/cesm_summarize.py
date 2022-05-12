@@ -2,8 +2,13 @@ import pandas as pd
 
 def average_and_max(data, param):
     """
-    data: dictionary of xarray datasets
-    param: desired key (tas, huss, pr) 
+	Gets the average and maximum values for each study and returns as a dataframe.
+	
+	Input: 
+		-data: dictionary of xarray datasets
+		-param: desired key (tas, huss, pr) 
+	Output: 
+		-A dataframe containing average and max param values for each study in data
     """
     summary = pd.DataFrame(columns = list(data), index = ["Mean", "Max"])
     for col in summary.columns:

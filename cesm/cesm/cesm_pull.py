@@ -10,7 +10,12 @@ import pandas as pd
 
 def find_available_data(filts=None):
     """
-    
+	Finds data csv from the cmip6 google storage. 
+	
+    Input: 
+		-filts: an optional input filter for certain parameters 
+	Output:
+		-A dataframe of studies and various features attributed to them 
     """
     df = pd.read_csv("https://cmip6.storage.googleapis.com/pangeo-cmip6.csv")
 
@@ -36,7 +41,12 @@ def find_available_data(filts=None):
 
 def model_eval(df):
     """
-    
+    Asses the unique values of model given. 
+	
+    Input:
+		-df: a specific model df 
+	Output:
+		-A summary of the df attributes and unique column values
     """
     print(df.shape)
 
@@ -50,7 +60,13 @@ def model_eval(df):
 ##########################################################################
 def grab_data(df, ind):
     """
-    
+	Checks the output of one model variable. 
+	
+	Input:
+		-df: A specific model df
+		-ind: the study to check
+	Output:
+		-an xarray output summary
     """
     fs = gcsfs.GCSFileSystem(token='anon', access='read_only')
 
@@ -67,7 +83,15 @@ def grab_data(df, ind):
 
 def build_data(df, mip, exp, writeout=False):
     """
-    
+    Used in the function model_pull below to build models data into one xarray.
+	
+    Input:
+		-df: A specifc model dataframe
+		mip: Activity_id group
+		exp: experiment_id group
+		writeout: converts the data to zarr
+	Output:
+		-An xarray composed of mip and exp data. 
     """
     df = df[
         (df['activity_id'] == mip) &
@@ -93,7 +117,12 @@ def build_data(df, mip, exp, writeout=False):
 
 def data_eval(df):
     """
-    
+    Returns a df of the selected model variables. Usefull to check for consistensy in dim/coors.
+	
+    Input:
+		-df: A specific model df
+	Output:
+		-dataframe of selecrted model variables
     """
     x = {}
 
@@ -130,7 +159,13 @@ def data_eval(df):
 
 def model_pull(filts=None, writeout=True):
     """
-    
+    Reads in the selected models data from a directory. 
+	
+    Input:
+		-filts: optional filter by variable
+		-writeout: converts the data to zarr, default true 
+	Output:
+		-Downloads the data and prints a statement about status
     """
     ncar_models = find_available_data(filts)
 
