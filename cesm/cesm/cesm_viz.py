@@ -115,6 +115,10 @@ def plot_map(
         extent,
         use_coasts,
         use_states,
+        title, 
+        titlesize,
+        titlex,
+        titley,
     )
 
     ################################
