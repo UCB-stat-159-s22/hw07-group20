@@ -28,3 +28,4 @@ dependencies:
     - myst-parser==0.15.2
     - sphinx==4.5.0
     - sphinx-jupyterbook-latex==0.4.6
+    - pytest

@@ -24,3 +24,10 @@ html-hub :
 clean :
 	rm -r figures/*
 	rm -rf _build
+
+
+# Rerun all notebooks and save newly made figures
+.PHONY : all
+all : 
+	chmod a+x make_scripts/runall.sh
+	bash -ic make_scripts/runall.sh
