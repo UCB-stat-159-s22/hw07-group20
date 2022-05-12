@@ -16,6 +16,6 @@ python make_scripts/nbexecute.py Pangeo_data_selection.ipynb $env_name
 
 python make_scripts/nbexecute.py CESM_EDA.ipynb $env_name
 
-python scripts/nbexecute.py United_States.ipynb $env_name
+python make_scripts/nbexecute.py United_States.ipynb $env_name
 
-python scripts/nbexecute.py main.ipynb $env_name
+python make_scripts/nbexecute.py main.ipynb $env_name
