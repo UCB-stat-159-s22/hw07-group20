@@ -10,9 +10,6 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import shelve
 
-# change temp dir one folder down for correct relative path testing
-os.chdir('cesm')
-
 
 ##########################################################################
 
