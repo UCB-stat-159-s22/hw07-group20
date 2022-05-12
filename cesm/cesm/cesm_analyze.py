@@ -182,3 +182,132 @@ def base_sub(ds, hist):
     
 
 ##########################################################################
+
+def facet_ds(d, var):
+    """
+    requires a ds with at least n-1 dimensions
+        (either (lat/lon) remain, or only time remains)
+    coords are by default ordered by
+        time, lat, lon
+    """
+    d = d.copy() # to prevent_modifying in-place
+    
+    ################################
+    # Metadata extraction
+    models = np.array(list(d.keys()))
+    n_models = len(models)
+    
+    modeldims = {}
+    for k in models:
+        modeldims.update(dict(d[k].dims))
+    
+    try:
+        modeldims.pop('nbnd')
+    except KeyError:
+        pass
+    
+    n_dims = len(modeldims)
+    datadims = [k for k, v in modeldims.items() if v!=1]
+    framedims = [k for k, v in modeldims.items() if v==1]
+        
+    ################################
+    # Check suitability for faceting
+    if n_dims > 2:        
+        if len(datadims) > 2:
+            raise KeyError
+        else:
+            for k in models:
+                d[k] = d[k].mean(framedims)
+
+    ################################
+    # Data clean in prep for faceting
+    
+    # Create new DataArrays in each ds 
+    #  as their own model names (to avoid all names of var)
+    for m in models:
+        d[m][m] = d[m][var].copy()
+        
+    ################################
+    # 2 dimensions cleaning
+    if len(datadims) == 2:
+        # assume lat/lon only dims
+        newdims = ['lat', 'lon', 'model']
+        
+        newcoords = {
+            'lat': d[models[-1]]['lat'],
+            'lon': d[models[-1]]['lon'],
+            'model': models,
+        }
+        
+        model_data = np.dstack(tuple([d[m][var].values for m in models]))
+                
+    ################################
+    # 1 dimension cleaning
+    else:
+        # assume time only dim
+        dimname = list(modeldims)[0]
+        newdims = ['model', dimname]
+        
+        # Fix issue where hist is overwritten due to diff in time dim
+        data_lens = set([len(d[m][var].values) for m in models])
+        
+        if len(data_lens) != 1:
+            h_excess = len(d[models[-1]][var].values)
+            sp_excess = len(d['hist'][var].values)
+
+            time_data = list(np.repeat(np.nan, n_models))
+
+            for i, m in enumerate(models):
+                if m == 'hist':
+                    time_data[0] = np.concatenate([
+                        d['hist'][var].values,
+                        np.repeat(np.nan, h_excess),
+                    ])
+                else:        
+                    time_data[i] = np.concatenate([
+                        np.repeat(np.nan, sp_excess),
+                        d[m][var].values,
+                    ])
+
+            model_data = np.vstack(tuple(time_data))
+            
+            newcoords = {
+                'model': models,
+                dimname: np.concatenate([
+                    d['hist'][dimname].values, 
+                    d[models[-1]][dimname].values
+                ])
+            }
+
+        else:
+            model_data = np.vstack(tuple([d[m][var].values for m in models]))
+            
+            newcoords = {
+                'model': models,
+                dimname: d[models[-1]][dimname] 
+            }
+
+    ################################
+    # Last check before faceting
+    # if model_data.shape[0] != n_models:
+    #     print(models)
+    #     print(n_dims)
+    #     return model_data
+    #     raise KeyError
+        
+    ################################
+    # Facet datasets!
+    dfacet = xr.Dataset(
+        data_vars = {var: (newdims, model_data)},
+        coords = newcoords,
+    )
+
+    return dfacet
+
+
+##########################################################################
+    
+        
+
+    
+    

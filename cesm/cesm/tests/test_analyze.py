@@ -196,4 +196,82 @@ def test_agg4():
 
 
 ###########################################################################
+def test_facet1():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
 
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    ds_w = ca.dictorize(
+        func = 'weight', 
+        modeldict = dtest,
+    )
+
+    ds_mt = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            ds_w,
+            {'grps': ('lat', 'lon'), 'aggfunc': np.nanmean, 'roll': {}},
+        ),
+    )
+
+
+    # "_my" for mean of each year
+    ds_my = ca.dictorize(
+        func = 'agg',
+        modeldict = ca.nest_dicts(
+            ds_mt,
+            {'grps': 'time.year', 'aggfunc': np.nanmean, 'roll': {}},
+        ),
+    )
+
+    dfacet = ca.facet_ds(ds_my, 'tas')
+    
+    assert isinstance(dfacet, xr.Dataset)
+    assert len(dfacet.dims) == 2
+
+
+###########################################################################
+def test_facet2():
+    scenarios = ['historical', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+    model_names = ['hist', 'sp1', 'sp2', 'sp3', 'sp5']
+
+    dtest = ca.dictorize(
+        func = xr.open_zarr,
+        modeldict = dict(zip(model_names, scenarios)),
+    )
+
+    baseline = (
+        dtest['hist']
+        .sel(time=slice('1850', '1980'))
+        .mean('time')
+    )
+
+    ds_diffs = dtest.copy()
+    ds_diffs['hist'] = baseline.copy()
+
+    ds_diffs = ca.dictorize(
+        func = 'diff',
+        modeldict = ca.nest_dicts(
+            ds_diffs,
+        ),
+    )
+
+    d2100 = ca.dictorize(
+        func = 'sel',
+        modeldict = ca.nest_dicts(
+            ds_diffs,
+            {'args': {'time': '2100-12-15'}},
+        ),
+    )
+
+    dfacet = ca.facet_ds(d2100, 'tas')
+    
+    assert isinstance(dfacet, xr.Dataset)
+    assert len(dfacet.dims) == 3
+
+
+###########################################################################
