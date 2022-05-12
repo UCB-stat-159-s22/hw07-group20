@@ -33,11 +33,13 @@ def dictorize(func, modeldict):
         - dictionary of xarray datasets
         - dict will be of xarray dataarrays if 'var' func is used
     """
+    ################################
     if func == xr.open_zarr:
         d = {
             k: func(f'../data/{v}.zarr') for k, v in modeldict.items()
         }
 
+    ################################
     if func == 'sel':
         d = {
             k: v['data'].sel(
@@ -45,11 +47,13 @@ def dictorize(func, modeldict):
             ) for k, v in modeldict.items()
         }
 
+    ################################
     if func == 'var':
         d = {
             k: ds['data'][ds['var']] for k, ds in modeldict.items()
         }
 
+    ################################
     if func == 'weight':
         keys = list(modeldict)
         first_ds = modeldict[keys[0]]#['data']
@@ -61,6 +65,7 @@ def dictorize(func, modeldict):
             k: ds.weighted(weights) for k, ds in modeldict.items()
         }
 
+    ################################
     if func == 'agg':
         d = {}
 
@@ -72,6 +77,7 @@ def dictorize(func, modeldict):
             )
             d[k] = ds_temp.copy()
             
+    ################################
     if func == 'diff':
         d = {}
         
@@ -92,15 +98,11 @@ def agg_ds(ds, aggfunc, dims, roll={}):
     
     """
     if isinstance(ds, xr.core.weighted.DatasetWeighted):
-        # # ds_agg = ds.mean(('lat', 'lon'))
-        # if pd.isnull(dims):
-        #     return ds_agg
         return ds.mean(dims)
-
-
     else:
         ds_agg = ds.copy()
 
+    ################################
     if len(roll.keys()) > 0:
         ds_agg = ds_agg.roll(roll)
     else:
@@ -139,6 +141,7 @@ def nest_dicts(d, d_args={}):
     for k, v in d.items():
         dn[k]['data'] = v
 
+    ################################
     if len(d_args.keys()) > 0:
         same_keys = set(list(d)) == set(list(d_args))
 
@@ -306,8 +309,3 @@ def facet_ds(d, var):
 
 
 ##########################################################################
-    
-        
-
-    
-    
