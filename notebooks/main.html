@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios &#8212; CESM Analysis (HW7)</title>
+    <title>Analysis of CESM Scenarios to Assess Future Climate Scenarios &#8212; CESM Analysis (HW7)</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -93,7 +93,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
+   Analysis of CESM Scenarios to Assess Future Climate Scenarios
   </a>
  </li>
 </ul>
@@ -223,12 +223,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
+   Analysis of CESM Scenarios to Assess Future Climate Scenarios
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#world-wide-analysis">
-   World Wide Analysis
+   World-Wide Analysis
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -287,7 +287,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios</h1>
+                <h1>Analysis of CESM Scenarios to Assess Future Climate Scenarios</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -299,12 +299,12 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
+   Analysis of CESM Scenarios to Assess Future Climate Scenarios
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#world-wide-analysis">
-   World Wide Analysis
+   World-Wide Analysis
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
@@ -362,10 +362,11 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="analysing-cesm-models-predicting-geological-data-for-multiple-future-climate-scenarios">
-<h1>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios<a class="headerlink" href="#analysing-cesm-models-predicting-geological-data-for-multiple-future-climate-scenarios" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="analysis-of-cesm-scenarios-to-assess-future-climate-scenarios">
+<h1>Analysis of CESM Scenarios to Assess Future Climate Scenarios<a class="headerlink" href="#analysis-of-cesm-scenarios-to-assess-future-climate-scenarios" title="Permalink to this headline">¶</a></h1>
 <p>by Group 20 (Michael Milazzo, Jacob Jossart, and Kaichi Inoue)</p>
-<p>Hello! Our group is currently on the EDA phase of this project. Please review our current progress on the notebooks linked in the left menu. This notebook is mainly a general summary of our results, details in how results were retrieved are in other notebooks and scripts.</p>
+<p>Hello! Our group explored the results from climate models from the Community Earth System Model (<a class="reference external" href="https://www.cesm.ucar.edu/">CESM</a>), created by the National Center for Atmospheric Research (<a class="reference external" href="https://ncar.ucar.edu/">NCAR</a>). Please review our notebooks linked in the left menu. This notebook is mainly a general summary of our results; analysis details are in dedicated notebooks and scripts.</p>
+<p>Many of the findings here agree well with those found in the IPCC’s <a class="reference external" href="https://www.ipcc.ch/report/ar6/wg1/">Sixth Assessment Report (AR6)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -374,6 +375,7 @@
 </div>
 </div>
 </div>
+<p>Our data was retrieved from <a class="reference external" href="https://pangeo.io/">Pangeo</a>, a open science community that promotes reproducable research in the Earth sciences. They provided a list of available data from CMIP. We pulled <a class="reference external" href="https://ncar.ucar.edu/what-we-offer/models/community-earth-system-model-cesm">CESM</a> data in our Pangeo_data_selection notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;https://avatars.githubusercontent.com/u/23299451?s=200&amp;v=4.png&#39;</span><span class="p">)</span>
@@ -381,13 +383,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_3_0.png" src="../_images/main_3_0.png" />
+<img alt="../_images/main_4_0.png" src="../_images/main_4_0.png" />
 </div>
 </div>
-<p>Our data was retrieved from <a class="reference external" href="https://pangeo.io/">Pangeo</a>, a open science community that promotes reproducable research in the Earth sciences. They provided a list of available data from CMIP. We pulled <a class="reference external" href="https://ncar.ucar.edu/what-we-offer/models/community-earth-system-model-cesm">CESM</a> data in our Pangeo_data_selection notebook.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="world-wide-analysis">
-<h1>World Wide Analysis<a class="headerlink" href="#world-wide-analysis" title="Permalink to this headline">¶</a></h1>
+<h1>World-Wide Analysis<a class="headerlink" href="#world-wide-analysis" title="Permalink to this headline">¶</a></h1>
+<p>We analyzed the historical annual averages of air surface temperatures from 1850 to 2014. For most of this time, averages hovered around 287 to 287.5 degrees Kelvin. It was around the 1980s that the impact of human actions really began to increase the temperatures. Now, let’s look at the differences in predictions for varying scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/hist_temp_timeline.png&#39;</span><span class="p">)</span>
@@ -395,10 +397,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_6_0.png" src="../_images/main_6_0.png" />
+<img alt="../_images/main_7_0.png" src="../_images/main_7_0.png" />
 </div>
 </div>
-<p>Here we can see the historical annual averages of air surface temperatures from 1850 to 2014. For most of this time averages hovered around 287 to 287.5 degrees kelvin. It was around the 1980s that the impact of human actions really began to increase the temperatures. Now, lets look at the differences in predictions for varying scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/all_temp_timeline.png&#39;</span><span class="p">)</span>
@@ -409,7 +410,7 @@
 <img alt="../_images/main_8_0.png" src="../_images/main_8_0.png" />
 </div>
 </div>
-<p>In this plot we show the historical annual averages, and then from 2015 on the predictions in four different scenarios. Scenario 1 is the best case, up to scenario 5 the worst case.</p>
+<p>In this plot we show the historical annual averages, and then from 2015 on the predictions in four different scenarios. Scenario 1 is the best case, up to scenario 5 the worst case. These scenarios follow Representative Concentrations Pathways (RCP, in Watts per meter squared) 2.6 W/m2, 4.5 W/m2, 7.0 W/m2, and 8.5 W/m2. These future scenarios are several of those considered by the Intergovernmental Panel on Climate Change (<a class="reference external" href="https://www.ipcc.ch/">IPCC</a>).</p>
 <p>In the next 3 sections we will explore the worldwide differences between each of the four models preductions (2015-2100) and historical averages (1850-1980) for Near-Surface Air Temperature, Near-Surface Specifc Humidity, and Precipitation.</p>
 <div class="section" id="near-surface-air-temperature">
 <h2>Near-Surface Air Temperature<a class="headerlink" href="#near-surface-air-temperature" title="Permalink to this headline">¶</a></h2>
@@ -423,10 +424,11 @@
 <img alt="../_images/main_11_0.png" src="../_images/main_11_0.png" />
 </div>
 </div>
-<p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 world wide. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across the world, which will result in worsening wildfires, wind patterns, droughts, and more. There is an interestingly resistant to change area around Iceland, which could possibly be due to the Gulf Stream’s cycles being exasterbated where less heat will be brought over to Northern Europe. This could result in an actual decrease in temperatures in that region, which could come with many of its own problems. Below is a summary of mean and peak air temperature values.</p>
+<p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 worldwide. The lighter regions represent less change in surface air temperature, and the darker signify larger changes. We see that the Northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection (aka, albedo) of incoming sunlight/heat. This process results in this visibly larger differences in this region’s temperature than the other regions. In general, we expect increases in surface air temperature across the world, which will result in stronger and more frequent extreme wildfires, weather systems, and droughts. There is an interestingly resistant to change area around Greenland, which could possibly be due excessive glacial melt from Greenland, or from reduced heat from the Gulf Stream’s cycles (indicating a weaker Gulf Stream). A weaker Gulf Stream would cause less heat to be brought over to Northern Europe, and could result in an actual decrease in temperatures in that region, which could come with many of its own problems. Below is a summary of mean and peak air temperature values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_tas.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Air temperature summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_tas.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -460,18 +462,18 @@
     <tr>
       <th>0</th>
       <td>Mean</td>
-      <td>2.697534</td>
-      <td>3.893385</td>
-      <td>5.407121</td>
-      <td>7.411402</td>
+      <td>2.7</td>
+      <td>3.89</td>
+      <td>5.41</td>
+      <td>7.41</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Max</td>
-      <td>8.297601</td>
-      <td>10.178103</td>
-      <td>12.911526</td>
-      <td>19.133661</td>
+      <td>8.3</td>
+      <td>10.18</td>
+      <td>12.91</td>
+      <td>19.13</td>
     </tr>
   </tbody>
 </table>
@@ -490,10 +492,11 @@
 <img alt="../_images/main_15_0.png" src="../_images/main_15_0.png" />
 </div>
 </div>
-<p>This set of plot shows us model predictions in 2100 for world wide Specific Humidity, which is the mass of water vapor per unit mass of air. We can see an increase in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>. On the plots, this is that belt of darkening red around the equator. The general increase in humidity across the world could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
+<p>This set of plot shows us model predictions in 2100 for worldwide Specific Humidity, which is the mass of water vapor per unit mass of air. We can see an increase in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>. On the plots, this is that belt of dark red around the equator. The general increase in humidity across the world could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a>, amongst other natural phenomena. Below is a summary of average and maximum specific humidity values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_huss.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specific humidity summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_huss.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -527,18 +530,18 @@
     <tr>
       <th>0</th>
       <td>Mean</td>
-      <td>0.001088</td>
-      <td>0.001619</td>
-      <td>0.002330</td>
-      <td>0.003200</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Max</td>
-      <td>0.003957</td>
-      <td>0.005402</td>
-      <td>0.007174</td>
-      <td>0.008397</td>
+      <td>0.0</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.01</td>
     </tr>
   </tbody>
 </table>
@@ -557,12 +560,13 @@
 <img alt="../_images/main_19_0.png" src="../_images/main_19_0.png" />
 </div>
 </div>
-<p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels around the world. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the regions just off of coastlines, and in the Atlantic, can expect a decrease in precipitation. However, in the other three models we can see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>.</p>
-<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extreme weather events.</p>
-<p>These predicitions were interesting to me because usually we associate climate change with heat and drought. However, water is not necessarily being lost, its just that the locations it is concentrated in or not become more extreme.</p>
+<p>Here we have the four model predictions in 2100 for Precipitation levels (in <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span>) around the world. There are a couple of interesting patterns to address here. In the first model with least warming, we see that many of the regions just off of coastlines (and in the Atlantic) can expect a decrease in precipitation. However, the other three models predict increased precipitation. This could be due many things, which may again include <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> since the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El Niño events</a>.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that encircles the Earth around the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air and water in the ITCZ, raising its humidity and making it more buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious implications for extreme weather events.</p>
+<p>These predicitions were interesting to us because we usually associate climate change with heat and drought. However, water is not necessarily being lost; it’s just that the locations it is concentrated in (or not) become more extreme.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_pr.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Precipitation summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_pr.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -596,18 +600,18 @@
     <tr>
       <th>0</th>
       <td>Mean</td>
-      <td>0.000002</td>
-      <td>0.000002</td>
-      <td>0.000003</td>
-      <td>0.000004</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Max</td>
-      <td>0.000061</td>
-      <td>0.000165</td>
-      <td>0.000163</td>
-      <td>0.000127</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -633,7 +637,8 @@
 <p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 in the North America region. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across North America, which will result in worsening wildfires, wind patterns, droughts, and more. Below is a summary of mean and peak air temperature values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_tas.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># U.S. air temperature summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_tas.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -697,10 +702,11 @@
 <img alt="../_images/main_28_0.png" src="../_images/main_28_0.png" />
 </div>
 </div>
-<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. We can see drastic increases in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, represented on the map by the increasingly yellow line along the bottom by the equator. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
+<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. We can see drastic increases in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, represented on the map by the increasingly yellow line along the bottom by the equator. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomena. Below is a summary of average and maximum specific humidity values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_huss.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># U.S. air temperature summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_huss.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,11 +770,12 @@
 <img alt="../_images/main_32_0.png" src="../_images/main_32_0.png" />
 </div>
 </div>
-<p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
-<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extreme weather events.</p>
+<p>Here we have the four model predictions in 2100 for Precipitation levels (in <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span>) in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. As seen above at the worldwide level, this could be the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>. More likely, however, is that this is evidence of stronger <a class="reference external" href="https://www.climate.gov/enso">El Niño events</a> in more severe climate futures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_pr.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># U.S. air temperature summary statistics for the four different models</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_pr.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -823,8 +830,10 @@
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
 <h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
-<p>Our analysis lead to some interesting insights into the ways in which Earth will change by the year 2100. By looking at four different models of varying sevarity we can further see what potential outcomes there might be. We observed and discussed changes to surface air temperatures, humidity, and precipitation. In the best case scenario, we can expect 2.6 degrees warming difference from the historical averages (1850-1980). In the worse case, we can expect 7.4 degrees warming. Given the benchmark set out by the <a class="reference external" href="https://news.un.org/en/story/2022/05/1117842#:~:text=The%201.5%20%C2%B0C%20target,order%20to%20limit%20global%20warming.">United Nations</a> of 1.5 degrees warming, things are looking grim to say the least. Yet, this should be taken as inspiration for us as a world wide society to enact and call for change as soon as possible.</p>
+<p>Our analysis led to some interesting insights in the ways Earth will change by the year 2100 due to anthropogenic climate change. By looking at four different models of varying severity, we can further see the average intensity of potential weather-relevant outcomes. We observed and discussed changes to surface air temperatures, humidity, and precipitation. In the best case scenario, we can expect 2100 to be 2.6 degrees Celsius warmer than the historical average (1850-1980). In the worst case, we can expect 7.4 degrees warming above the historical baseline. Given the benchmark set out by the <a class="reference external" href="https://news.un.org/en/story/2022/05/1117842#:~:text=The%201.5%20%C2%B0C%20target,order%20to%20limit%20global%20warming.">United Nations</a> that we must remain under 1.5 degrees of warming, our future appears to become much more challenging if we surpass that level. Indeed, the IPCC states that we must start to create negative emissions if we want to prevent reaching 1.5 C by 2100. Yet, this should be taken as inspiration for us as a world wide society to enact and call for change as soon as possible.</p>
 <p>In the future, we hope we could make more analysis of key features at a more granular level. We tried to zoom in to the state level, but unfortunately the resolution of the data was not granular enough to make any conclusion. In the future we could see it being possible to source data from another source to get more details at this granularity.</p>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
