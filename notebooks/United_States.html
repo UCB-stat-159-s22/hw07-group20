@@ -261,6 +261,7 @@
 <span class="kn">from</span> <span class="nn">cesm</span> <span class="kn">import</span> <span class="n">cesm_analyze</span> <span class="k">as</span> <span class="n">ca</span>
 <span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 <span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">import</span> <span class="nn">shelve</span>
 </pre></div>
 </div>
 </div>
@@ -268,31 +269,36 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Organizion of the different datasets into a dictionary</span>
-<span class="n">vardict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;huss&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Specific Humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;hurs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Relative Humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;[%]&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;pr&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Precipitation&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;$[</span><span class="se">\f</span><span class="s1">rac</span><span class="si">{kg}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">s}]$&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;tas&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;tasmin&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Daily Min. Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;tasmax&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Daily Max. Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
-<span class="p">}</span>
-<span class="n">modeldict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;hist&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Historical Data&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;sp1&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#1: 2.6 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;sp2&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#2: 4.5 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;sp3&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#3: 7.0 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;sp5&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#5: 8.5 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
-    <span class="p">},</span>
-<span class="p">}</span>
+<span class="c1"># vardict = {</span>
+<span class="c1">#     &#39;huss&#39;: {&#39;name&#39;: &#39;Specific Humidity&#39;, &#39;units&#39;: &#39;&#39;},</span>
+<span class="c1">#     &#39;hurs&#39;: {&#39;name&#39;: &#39;Relative Humidity&#39;, &#39;units&#39;: &#39;[%]&#39;},</span>
+<span class="c1">#     &#39;pr&#39;: {&#39;name&#39;: &#39;Precipitation&#39;, &#39;units&#39;: &#39;$[\frac{kg}{m^{2}s}]$&#39;},</span>
+<span class="c1">#     &#39;tas&#39;: {&#39;name&#39;: &#39;Air Temperature&#39;, &#39;units&#39;: &#39;K&#39;},</span>
+<span class="c1">#     &#39;tasmin&#39;: {&#39;name&#39;: &#39;Daily Min. Air Temperature&#39;, &#39;units&#39;: &#39;K&#39;},</span>
+<span class="c1">#     &#39;tasmax&#39;: {&#39;name&#39;: &#39;Daily Max. Air Temperature&#39;, &#39;units&#39;: &#39;K&#39;},</span>
+<span class="c1"># }</span>
+<span class="c1"># modeldict = {</span>
+<span class="c1">#     &#39;hist&#39;: {</span>
+<span class="c1">#         &#39;code&#39;: &#39;historical&#39;, &#39;name&#39;: &#39;Historical Data&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &#39;sp1&#39;: {</span>
+<span class="c1">#         &#39;code&#39;: &#39;ssp126&#39;, &#39;name&#39;: r&#39;$Scenario \#1: 2.6 \frac{W}{m^{2}}$&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &#39;sp2&#39;: {</span>
+<span class="c1">#         &#39;code&#39;: &#39;ssp245&#39;, &#39;name&#39;: r&#39;$Scenario \#2: 4.5 \frac{W}{m^{2}}$&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &#39;sp3&#39;: {</span>
+<span class="c1">#         &#39;code&#39;: &#39;ssp370&#39;, &#39;name&#39;: r&#39;$Scenario \#3: 7.0 \frac{W}{m^{2}}$&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1">#     &#39;sp5&#39;: {</span>
+<span class="c1">#         &#39;code&#39;: &#39;ssp585&#39;, &#39;name&#39;: r&#39;$Scenario \#5: 8.5 \frac{W}{m^{2}}$&#39;</span>
+<span class="c1">#     },</span>
+<span class="c1"># }</span>
+<span class="k">with</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../analysis_data/descriptors&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
+    <span class="n">vardict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;vardict&#39;</span><span class="p">]</span>
+    <span class="n">modeldict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;modeldict&#39;</span><span class="p">]</span>
+
+    
 
 <span class="c1">#Opening each of the Xarray datasets</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
