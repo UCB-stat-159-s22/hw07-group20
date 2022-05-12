@@ -1,0 +1,1062 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; CESM Analysis (HW7)</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="CESM Cleaning and Exploratory Data Analysis" href="CESM_EDA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CESM Analysis (HW7)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="main.html">
+   Main narrative notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Selection
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Pangeo_data_selection.html">
+   Accessing Pangeo Climate Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exploratory Data Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="CESM_EDA.html">
+   CESM Cleaning and Exploratory Data Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/United_States.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group20"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group20/main?urlpath=tree/notebooks/United_States.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#imports </span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">cesm</span> <span class="kn">import</span> <span class="n">cesm_analyze</span> <span class="k">as</span> <span class="n">ca</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Organizion of the different datasets into a dictionary</span>
+<span class="n">vardict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;huss&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Specific Humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;hurs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Relative Humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;[%]&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;pr&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Precipitation&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;$[</span><span class="se">\f</span><span class="s1">rac</span><span class="si">{kg}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">s}]$&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tas&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tasmin&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Daily Min. Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tasmax&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Daily Max. Air Temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="n">modeldict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;hist&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Historical Data&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;sp1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#1: 2.6 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;sp2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#2: 4.5 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;sp3&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#3: 7.0 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;sp5&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$Scenario \#5: 8.5 \frac</span><span class="si">{W}</span><span class="s1">{m^</span><span class="si">{2}</span><span class="s1">}$&#39;</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">#Opening each of the Xarray datasets</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">,</span> 
+    <span class="n">modeldict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">modeldict</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Available datasets: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#Creating var names for each dataset</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;hist&#39;</span><span class="p">]</span>
+<span class="n">sp1</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sp1&#39;</span><span class="p">]</span>
+<span class="n">sp2</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sp2&#39;</span><span class="p">]</span>
+<span class="n">sp3</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sp3&#39;</span><span class="p">]</span>
+<span class="n">sp5</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sp5&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available datasets: [&#39;hist&#39;, &#39;sp1&#39;, &#39;sp2&#39;, &#39;sp3&#39;, &#39;sp5&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;hist&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1850&#39;</span><span class="p">,</span> <span class="s1">&#39;1980&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="n">ds_diffs</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ds_diffs</span><span class="p">[</span><span class="s1">&#39;hist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">baseline</span>
+<span class="n">ds_diffs</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="s1">&#39;diff&#39;</span><span class="p">,</span>
+    <span class="n">modeldict</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">nest_dicts</span><span class="p">(</span>
+        <span class="n">ds_diffs</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">USA</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="s1">&#39;sel&#39;</span><span class="p">,</span>
+    <span class="n">modeldict</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">nest_dicts</span><span class="p">(</span>
+        <span class="n">ds_diffs</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;2100&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+                 <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">300</span><span class="p">)}},</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">USA</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="s1">&#39;agg&#39;</span><span class="p">,</span>
+    <span class="n">modeldict</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">nest_dicts</span><span class="p">(</span>
+        <span class="n">USA</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;grps&#39;</span><span class="p">:</span> <span class="s1">&#39;time.year&#39;</span><span class="p">,</span> <span class="s1">&#39;aggfunc&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="s1">&#39;roll&#39;</span><span class="p">:</span> <span class="p">{}},</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_diff</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">vardict</span><span class="p">,</span> <span class="n">modeldict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1"># ds = xr.combine_by_coords([d[k][k] for k in d.keys()])</span>
+    
+    <span class="n">models</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">model_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">models</span><span class="p">]))</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+        <span class="n">data_vars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="p">([</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">model_data</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">models</span><span class="p">,</span>
+            <span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">models</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="n">var</span><span class="p">})</span>
+    
+    <span class="n">dplot</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">col</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> 
+        <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="c1"># cmap=&#39;RdYlBu_r&#39;, vmin=-30, vmax=30, extend=&#39;neither&#39;,</span>
+        <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">,</span>
+            <span class="c1">#&#39;anchor&#39;: (0, 2),</span>
+            <span class="c1"># &quot;shrink&quot;: 0.8,</span>
+            <span class="s2">&quot;aspect&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">vardict</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">vardict</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
+            <span class="c1"># &#39;ticks&#39;: [-35, 0, 35],</span>
+            <span class="s1">&#39;spacing&#39;</span><span class="p">:</span> <span class="s1">&#39;proportional&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">subplot_kws</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">crs</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dplot</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+        <span class="n">sc</span> <span class="o">=</span> <span class="n">modeldict</span><span class="p">[</span><span class="n">models</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;$&#39;</span>
+        <span class="n">rcp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$&#39;</span> <span class="o">+</span> <span class="n">modeldict</span><span class="p">[</span><span class="n">models</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">STATES</span><span class="o">.</span><span class="n">with_scale</span><span class="p">(</span><span class="s2">&quot;110m&quot;</span><span class="p">))</span>
+        
+        <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="s2">&quot;110m&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+        <span class="c1">#ax.set_xlim(-180, 180)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sc</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">rcp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="o">-</span><span class="mi">170</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">),</span> <span class="c1"># in lat, lon</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">bbox</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">vardict</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)</span><span class="si">}</span><span class="s2"> climate models</span><span class="se">\n</span><span class="s2">(NCAR CESM2)&quot;</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+        <span class="c1">#x=0.5, y=0.9,</span>
+    <span class="p">)</span>
+<span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">plot_diff</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;tas&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">vardict</span><span class="p">,</span> <span class="n">modeldict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_3_0.png" src="../_images/United_States_3_0.png" />
+</div>
+</div>
+<p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 in the North America region. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across North America, which will result in worsening wildfires, wind patterns, droughts, and more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_diff</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;pr&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">vardict</span><span class="p">,</span> <span class="n">modeldict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_5_0.png" src="../_images/United_States_5_0.png" />
+</div>
+</div>
+<p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extremem weather events.</p>
+<p>These predicitions were interesting to me because usually we associate climate change with heat and drought. However, water is not necessarily being lost, its just that the locations it is concentrated in or not become more extreme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_diff</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;huss&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">vardict</span><span class="p">,</span> <span class="n">modeldict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_7_0.png" src="../_images/United_States_7_0.png" />
+</div>
+</div>
+<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. Just like we saw an increase in precipitation at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, we can also see a drastic increase in the humidity for this area. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons.</p>
+<p>What is average and max difference in tas, pr, huss for North America?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">USA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;sp1&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:  (lat: 74, lon: 61, year: 1)
+ Coordinates:
+   * lat      (lat) float64 0.4712 1.414 2.356 3.298 ... 66.44 67.38 68.32 69.27
+   * lon      (lon) float64 225.0 226.2 227.5 228.8 ... 296.2 297.5 298.8 300.0
+   * year     (year) int64 2100
+ Data variables:
+     tas      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     hurs     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     huss     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     pr       (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     sp1      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;,
+ &#39;sp2&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:  (lat: 74, lon: 61, year: 1)
+ Coordinates:
+   * lat      (lat) float64 0.4712 1.414 2.356 3.298 ... 66.44 67.38 68.32 69.27
+   * lon      (lon) float64 225.0 226.2 227.5 228.8 ... 296.2 297.5 298.8 300.0
+   * year     (year) int64 2100
+ Data variables:
+     tas      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     hurs     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     huss     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     pr       (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     sp2      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;,
+ &#39;sp3&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:  (lat: 74, lon: 61, year: 1)
+ Coordinates:
+   * lat      (lat) float64 0.4712 1.414 2.356 3.298 ... 66.44 67.38 68.32 69.27
+   * lon      (lon) float64 225.0 226.2 227.5 228.8 ... 296.2 297.5 298.8 300.0
+   * year     (year) int64 2100
+ Data variables:
+     tas      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     hurs     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     huss     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     pr       (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     sp3      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;,
+ &#39;sp5&#39;: &lt;xarray.Dataset&gt;
+ Dimensions:  (lat: 74, lon: 61, year: 1)
+ Coordinates:
+   * lat      (lat) float64 0.4712 1.414 2.356 3.298 ... 66.44 67.38 68.32 69.27
+   * lon      (lon) float64 225.0 226.2 227.5 228.8 ... 296.2 297.5 298.8 300.0
+   * year     (year) int64 2100
+ Data variables:
+     tas      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     hurs     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     huss     (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     pr       (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;
+     sp5      (year, lat, lon) float32 dask.array&lt;chunksize=(1, 74, 61), meta=np.ndarray&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">USA</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">])</span>
+<span class="n">su</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mean</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Max</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cesm</span> <span class="kn">import</span> <span class="n">cesm_summarize</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="n">cs</span><span class="o">.</span><span class="n">average_and_max</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;tas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mean</th>
+      <td>2.908863</td>
+      <td>4.06936</td>
+      <td>5.781023</td>
+      <td>7.83742</td>
+    </tr>
+    <tr>
+      <th>Max</th>
+      <td>5.815333</td>
+      <td>8.140252</td>
+      <td>12.699799</td>
+      <td>18.631414</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average_and_max</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    data: dictionary of xarray datasets</span>
+<span class="sd">    param: desired key (tas, huss, pr) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">summary</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">mn</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">param</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span><span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mn</span>
+        <span class="n">mx</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">param</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span><span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span>
+    <span class="k">return</span> <span class="n">summary</span>
+       
+<span class="n">average_and_max</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;tas&#39;</span><span class="p">)</span>   
+    
+    
+
+<span class="c1"># tas_sp1mn = USA[&quot;sp1&quot;].tas.mean((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp1mx = USA[&quot;sp1&quot;].tas.max((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp2mn = USA[&quot;sp2&quot;].tas.mean((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp2mx = USA[&quot;sp2&quot;].tas.max((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp3mn = USA[&quot;sp3&quot;].tas.mean((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp3mx = USA[&quot;sp3&quot;].tas.max((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp5mn = USA[&quot;sp5&quot;].tas.mean((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+<span class="c1"># tas_sp5mx = USA[&quot;sp5&quot;].tas.max((&quot;lat&quot;,&quot;lon&quot;)).values[0]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mean</th>
+      <td>2.908863</td>
+      <td>4.06936</td>
+      <td>5.781023</td>
+      <td>7.83742</td>
+    </tr>
+    <tr>
+      <th>Max</th>
+      <td>5.815333</td>
+      <td>8.140252</td>
+      <td>12.699799</td>
+      <td>18.631414</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tas sp1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tas_sp1mn</span><span class="p">,</span> <span class="n">tas_sp1mx</span><span class="p">],</span> 
+           <span class="s1">&#39;Tas sp2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tas_sp2mn</span><span class="p">,</span> <span class="n">tas_sp2mx</span><span class="p">],</span> 
+           <span class="s1">&#39;Tas sp3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tas_sp3mn</span><span class="p">,</span> <span class="n">tas_sp3mx</span><span class="p">],</span>
+           <span class="s1">&#39;Tas sp5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tas_sp5mn</span><span class="p">,</span> <span class="n">tas_sp5mx</span><span class="p">]}</span>
+
+
+<span class="n">sum_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">summary</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">])</span>
+<span class="n">sum_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Near Surface Air Temperature(K) Models&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_b9893">
+  <caption>Near Surface Air Temperature(K) Models</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_b9893_level0_col0" class="col_heading level0 col0" >Tas sp1</th>
+      <th id="T_b9893_level0_col1" class="col_heading level0 col1" >Tas sp2</th>
+      <th id="T_b9893_level0_col2" class="col_heading level0 col2" >Tas sp3</th>
+      <th id="T_b9893_level0_col3" class="col_heading level0 col3" >Tas sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_b9893_level0_row0" class="row_heading level0 row0" >Mean</th>
+      <td id="T_b9893_row0_col0" class="data row0 col0" >2.908863</td>
+      <td id="T_b9893_row0_col1" class="data row0 col1" >4.069360</td>
+      <td id="T_b9893_row0_col2" class="data row0 col2" >5.781023</td>
+      <td id="T_b9893_row0_col3" class="data row0 col3" >7.837420</td>
+    </tr>
+    <tr>
+      <th id="T_b9893_level0_row1" class="row_heading level0 row1" >Max</th>
+      <td id="T_b9893_row1_col0" class="data row1 col0" >5.815333</td>
+      <td id="T_b9893_row1_col1" class="data row1 col1" >8.140252</td>
+      <td id="T_b9893_row1_col2" class="data row1 col2" >12.699799</td>
+      <td id="T_b9893_row1_col3" class="data row1 col3" >18.631414</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">USA</span><span class="p">[</span><span class="s2">&quot;sp1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span><span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.9088628
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span><span class="o">.</span><span class="n">plot_lines</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ds_my</span><span class="p">[</span><span class="s1">&#39;hist&#39;</span><span class="p">][</span><span class="n">var</span><span class="p">],</span> 
+    <span class="n">path</span> <span class="o">=</span> <span class="n">path_htt</span><span class="p">,</span> 
+    <span class="n">xlab</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> 
+    <span class="n">ylab</span> <span class="o">=</span> <span class="n">var_lab</span><span class="p">,</span> 
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Global Annual Averages of Historical Air Surface Temperature&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Select North American Region</span>
+<span class="n">USA</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="s2">&quot;sel&quot;</span><span class="p">,</span> 
+    <span class="n">ca</span><span class="o">.</span><span class="n">nest_dicts</span><span class="p">(</span>
+        <span class="n">ds</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+                 <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">300</span><span class="p">)}},</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">###########################################################</span>
+<span class="c1"># # Create new DataArrays as model names (for combining)</span>
+<span class="c1"># for k in USA.keys():</span>
+<span class="c1">#     USA[k][k] = USA[k][&#39;tas&#39;].copy()</span>
+
+<span class="c1"># ###########################################################</span>
+<span class="n">model_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">USA</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">USA</span><span class="o">.</span><span class="n">keys</span><span class="p">()]))</span>
+<span class="n">model_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6108, 74, 61)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Select North American Region</span>
+<span class="n">USA</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">dictorize</span><span class="p">(</span>
+    <span class="s2">&quot;sel&quot;</span><span class="p">,</span> 
+    <span class="n">ca</span><span class="o">.</span><span class="n">nest_dicts</span><span class="p">(</span>
+        <span class="n">ds</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+                 <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span><span class="mi">300</span><span class="p">)}},</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">###########################################################</span>
+<span class="c1"># # Create new DataArrays as model names (for combining)</span>
+<span class="c1"># for k in USA.keys():</span>
+<span class="c1">#     USA[k][k] = USA[k][&#39;tas&#39;].copy()</span>
+
+<span class="c1"># ###########################################################</span>
+<span class="n">model_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">USA</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">USA</span><span class="o">.</span><span class="n">keys</span><span class="p">()]))</span>
+
+<span class="c1"># dplot = xr.Dataset(</span>
+<span class="c1">#     data_vars = {</span>
+<span class="c1">#         k: ([&#39;model&#39;, &#39;lat&#39;, &#39;lon&#39;], model_data)</span>
+<span class="c1">#     },</span>
+<span class="c1">#     coords = {</span>
+<span class="c1">#         &#39;model&#39;: np.array(list(USA)),</span>
+<span class="c1">#         &#39;lat&#39;: USA[&#39;sp1&#39;][&#39;lat&#39;],</span>
+<span class="c1">#         &#39;lon&#39;: USA[&#39;sp1&#39;][&#39;lon&#39;],</span>
+<span class="c1">#     }</span>
+<span class="c1"># )</span>
+
+<span class="c1">#dplot = dplot.rename({&#39;sp5&#39;: &#39;tas&#39;})</span>
+
+<span class="c1">###########################################################</span>
+
+<span class="c1">#Select projections</span>
+<span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">USA</span><span class="p">[</span><span class="s2">&quot;hist&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;2000-01-15&quot;</span><span class="p">)[</span><span class="s2">&quot;tas&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Plot on a map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="s2">&quot;110m&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">STATES</span><span class="o">.</span><span class="n">with_scale</span><span class="p">(</span><span class="s2">&quot;110m&quot;</span><span class="p">))</span>
+
+<span class="c1">#dplot[&#39;tas&#39;].plot(col=&#39;model&#39;, col_wrap=2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f8ebcee62c0&gt;
+</pre></div>
+</div>
+<img alt="../_images/United_States_19_1.png" src="../_images/United_States_19_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;2000-01-15&quot;</span><span class="p">)[</span><span class="s2">&quot;tas&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fba9da62140&gt;
+</pre></div>
+</div>
+<img alt="../_images/United_States_21_1.png" src="../_images/United_States_21_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;2020-01-15&quot;</span><span class="p">)[</span><span class="s2">&quot;tas&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fe0d4a07cd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/United_States_22_1.png" src="../_images/United_States_22_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_hist</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_23_0.png" src="../_images/United_States_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_sp5</span> <span class="o">=</span> <span class="n">sp5</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hurs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_24_0.png" src="../_images/United_States_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hurs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe0be882380&gt;]
+</pre></div>
+</div>
+<img alt="../_images/United_States_25_1.png" src="../_images/United_States_25_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">hist</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;weights&quot;</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_26_0.png" src="../_images/United_States_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist_weighted</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<span class="n">hist_weighted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatasetWeighted with weights along dimensions: lat
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist_weighted</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">hist</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">hurs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Weighted&quot;</span><span class="p">)</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">hist</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hurs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;non-weighted&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe0d498dc00&gt;
+</pre></div>
+</div>
+<img alt="../_images/United_States_28_1.png" src="../_images/United_States_28_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist_south</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">hist_north</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="p">))</span>
+
+<span class="n">weights_south</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">hist_south</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">weights_north</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">hist_north</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+
+<span class="n">hist_south_weigthed</span> <span class="o">=</span> <span class="n">hist_south</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights_south</span><span class="p">)</span>
+<span class="n">hist_north_weigthed</span> <span class="o">=</span> <span class="n">hist_north</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights_north</span><span class="p">)</span>
+
+<span class="n">t_hurs_south</span> <span class="o">=</span> <span class="n">hist_south_weigthed</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hurs</span>
+<span class="n">t_hurs_south</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+
+<span class="n">t_hurs_north</span> <span class="o">=</span> <span class="n">hist_north_weigthed</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hurs</span>
+<span class="n">t_hurs_north</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/United_States_30_0.png" src="../_images/United_States_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">peak_tas</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">min_y</span><span class="p">,</span> <span class="n">max_y</span> <span class="o">=</span> <span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_y</span><span class="p">,</span> <span class="n">max_y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> 
+    <span class="n">peaks</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">min_d</span><span class="p">,</span> <span class="n">max_d</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">idxmin</span><span class="p">(),</span> <span class="n">year</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+        <span class="n">min_v</span><span class="p">,</span> <span class="n">max_v</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">min_d</span><span class="p">),</span> <span class="n">year</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">max_d</span><span class="p">)</span>
+        <span class="n">min_day</span><span class="p">,</span> <span class="n">max_day</span> <span class="o">=</span> <span class="n">min_d</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">,</span> <span class="n">max_d</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">min_day</span><span class="p">,</span> <span class="n">max_day</span><span class="p">,</span> <span class="n">min_v</span><span class="p">,</span> <span class="n">max_v</span><span class="p">,</span> <span class="p">(</span><span class="n">max_v</span><span class="o">-</span><span class="n">min_v</span><span class="p">)]]</span> 
+        <span class="n">peaks</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">,</span> <span class="n">min_d</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">max_d</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="o">+</span> <span class="n">vals</span><span class="p">)</span>
+
+    <span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> 
+                              <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;min_date&#39;</span><span class="p">,</span> <span class="s1">&#39;max_date&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;min_dayofyear&#39;</span><span class="p">,</span> <span class="s1">&#39;max_dayofyear&#39;</span><span class="p">,</span>
+                                         <span class="s1">&#39;min_tas&#39;</span><span class="p">,</span> <span class="s1">&#39;max_tas&#39;</span><span class="p">,</span> <span class="s1">&#39;amplitude&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">peaks</span>
+
+<span class="n">peaks_north</span> <span class="o">=</span> <span class="n">peak_tas</span><span class="p">(</span><span class="n">t_hurs_north</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cesm"
+        },
+        kernelOptions: {
+            kernelName: "cesm",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cesm'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="CESM_EDA.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CESM Cleaning and Exploratory Data Analysis</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Group 20 (Michael Milazzo, Jacob Jossart, and Kaichi Inoue)<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
