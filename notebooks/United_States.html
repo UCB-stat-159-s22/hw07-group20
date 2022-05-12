@@ -93,7 +93,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="main.html">
-   Main narrative notebook
+   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
   </a>
  </li>
 </ul>
@@ -336,27 +336,6 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_average_and_max</span><span class="p">():</span>
-    <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sp1&#39;</span><span class="p">,</span> <span class="s1">&#39;sp2&#39;</span><span class="p">,</span> <span class="s1">&#39;sp3&#39;</span><span class="p">,</span> <span class="s1">&#39;sp5&#39;</span><span class="p">]</span>
-
-    <span class="n">test</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">average_and_max</span><span class="p">(</span><span class="n">USA</span><span class="p">,</span> <span class="s1">&#39;tas&#39;</span><span class="p">)</span>
-
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>
-<span class="n">test_average_and_max</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_diff</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">vardict</span><span class="p">,</span> <span class="n">modeldict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .</span>
@@ -491,7 +470,7 @@
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/United_States_5_1.png" src="../_images/United_States_5_1.png" />
+</div></div><img alt="../_images/United_States_4_1.png" src="../_images/United_States_4_1.png" />
 </div>
 </div>
 <p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 in the North America region. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across North America, which will result in worsening wildfires, wind patterns, droughts, and more.</p>
@@ -549,7 +528,7 @@
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/United_States_7_1.png" src="../_images/United_States_7_1.png" />
+</div></div><img alt="../_images/United_States_6_1.png" src="../_images/United_States_6_1.png" />
 </div>
 </div>
 <p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
@@ -609,7 +588,7 @@
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/United_States_9_1.png" src="../_images/United_States_9_1.png" />
+</div></div><img alt="../_images/United_States_8_1.png" src="../_images/United_States_8_1.png" />
 </div>
 </div>
 <p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. Just like we saw an increase in precipitation at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, we can also see a drastic increase in the humidity for this area. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons.</p>

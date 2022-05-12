@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main narrative notebook &#8212; CESM Analysis (HW7)</title>
+    <title>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios &#8212; CESM Analysis (HW7)</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -91,7 +93,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Main narrative notebook
+   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
   </a>
  </li>
 </ul>
@@ -219,10 +221,61 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#author-contributions">
-   Author Contributions
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
   </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#world-wide-analysis">
+   World Wide Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#near-surface-air-temperature">
+     Near-Surface Air Temperature
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#near-surface-specifc-humidity">
+     Near-Surface Specifc Humidity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#precipitation">
+     Precipitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#north-american-analysis">
+   North American Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Near-Surface Air Temperature
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Near-Surface Specifc Humidity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Precipitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
  </li>
 </ul>
 
@@ -234,7 +287,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Main narrative notebook</h1>
+                <h1>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -244,10 +297,61 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#author-contributions">
-   Author Contributions
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios
   </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#world-wide-analysis">
+   World Wide Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#near-surface-air-temperature">
+     Near-Surface Air Temperature
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#near-surface-specifc-humidity">
+     Near-Surface Specifc Humidity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#precipitation">
+     Precipitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#north-american-analysis">
+   North American Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Near-Surface Air Temperature
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Near-Surface Specifc Humidity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Precipitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
  </li>
 </ul>
 
@@ -258,21 +362,21 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="main-narrative-notebook">
-<h1>Main narrative notebook<a class="headerlink" href="#main-narrative-notebook" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="analysing-cesm-models-predicting-geological-data-for-multiple-future-climate-scenarios">
+<h1>Analysing CESM Models Predicting Geological Data for Multiple Future Climate Scenarios<a class="headerlink" href="#analysing-cesm-models-predicting-geological-data-for-multiple-future-climate-scenarios" title="Permalink to this headline">¶</a></h1>
 <p>by Group 20 (Michael Milazzo, Jacob Jossart, and Kaichi Inoue)</p>
-<p>Hello! Our group is currently on the EDA phase of this project. Please review our current progress on the notebooks linked in the left menu.</p>
+<p>Hello! Our group is currently on the EDA phase of this project. Please review our current progress on the notebooks linked in the left menu. This notebook is mainly a general summary of our results, details in how results were retrieved are in other notebooks and scripts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../logo.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;https://avatars.githubusercontent.com/u/23299451?s=200&amp;v=4.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -280,16 +384,10 @@
 <img alt="../_images/main_3_0.png" src="../_images/main_3_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/weights.png&#39;</span><span class="p">)</span>
-</pre></div>
+<p>Our data was retrieved from <a class="reference external" href="https://pangeo.io/">Pangeo</a>, a open science community that promotes reproducable research in the Earth sciences. They provided a list of available data from CMIP. We pulled <a class="reference external" href="https://ncar.ucar.edu/what-we-offer/models/community-earth-system-model-cesm">CESM</a> data in our Pangeo_data_selection notebook.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/main_4_0.png" src="../_images/main_4_0.png" />
-</div>
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="world-wide-analysis">
+<h1>World Wide Analysis<a class="headerlink" href="#world-wide-analysis" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/hist_temp_timeline.png&#39;</span><span class="p">)</span>
@@ -297,9 +395,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_5_0.png" src="../_images/main_5_0.png" />
+<img alt="../_images/main_6_0.png" src="../_images/main_6_0.png" />
 </div>
 </div>
+<p>Here we can see the historical annual averages of air surface temperatures from 1850 to 2014. For most of this time averages hovered around 287 to 287.5 degrees kelvin. It was around the 1980s that the impact of human actions really began to increase the temperatures. Now, lets look at the differences in predictions for varying scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/all_temp_timeline.png&#39;</span><span class="p">)</span>
@@ -307,25 +406,421 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_6_0.png" src="../_images/main_6_0.png" />
+<img alt="../_images/main_8_0.png" src="../_images/main_8_0.png" />
 </div>
 </div>
+<p>In this plot we show the historical annual averages, and then from 2015 on the predictions in four different scenarios. Scenario 1 is the best case, up to scenario 5 the worst case.</p>
+<p>In the next 3 sections we will explore the worldwide differences between each of the four models preductions (2015-2100) and historical averages (1850-1980) for Near-Surface Air Temperature, Near-Surface Specifc Humidity, and Precipitation.</p>
+<div class="section" id="near-surface-air-temperature">
+<h2>Near-Surface Air Temperature<a class="headerlink" href="#near-surface-air-temperature" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/baseline_rh.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/ww_tas.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_7_0.png" src="../_images/main_7_0.png" />
+<img alt="../_images/main_11_0.png" src="../_images/main_11_0.png" />
 </div>
 </div>
-<div class="section" id="author-contributions">
-<h2>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h2>
-<p><strong>Michael Milazzo:</strong> Michael built the infrastructure for this project, including the environment, Makefile, Jupyter Book, Binder image, and <code class="docutils literal notranslate"><span class="pre">cesm</span></code> package. He wrote notebooks for data collection and cleaning, as well as some exploratory data analysis (EDA).</p>
-<p><strong>Jacob Jossart:</strong> Jake created a new branch to conduct EDA on North America. This work was saved in a notebook that became part of the Jupyter Book.</p>
-<p><strong>Kaichi Inoue:</strong> Kaichi downloaded the data and performed some local EDA. He attended all Zoom meetings and participated in discussions about the project.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_tas.csv&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>2.697534</td>
+      <td>3.893385</td>
+      <td>5.407121</td>
+      <td>7.411402</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>8.297601</td>
+      <td>10.178103</td>
+      <td>12.911526</td>
+      <td>19.133661</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="near-surface-specifc-humidity">
+<h2>Near-Surface Specifc Humidity<a class="headerlink" href="#near-surface-specifc-humidity" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/ww_huss.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_14_0.png" src="../_images/main_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_huss.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>0.001088</td>
+      <td>0.001619</td>
+      <td>0.002330</td>
+      <td>0.003200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>0.003957</td>
+      <td>0.005402</td>
+      <td>0.007174</td>
+      <td>0.008397</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="precipitation">
+<h2>Precipitation<a class="headerlink" href="#precipitation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/ww_pr.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_17_0.png" src="../_images/main_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_pr.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>0.000002</td>
+      <td>0.000002</td>
+      <td>0.000003</td>
+      <td>0.000004</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>0.000061</td>
+      <td>0.000165</td>
+      <td>0.000163</td>
+      <td>0.000127</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="north-american-analysis">
+<h1>North American Analysis<a class="headerlink" href="#north-american-analysis" title="Permalink to this headline">¶</a></h1>
+<p>In these next 3 sections we will explore the North American differences between each of the four models preductions (2015-2100) and historical averages (1850-1980) for Near-Surface Air Temperature, Near-Surface Specifc Humidity, and Precipitation.</p>
+<div class="section" id="id1">
+<h2>Near-Surface Air Temperature<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/USA_TAS_models.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_21_0.png" src="../_images/main_21_0.png" />
+</div>
+</div>
+<p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 in the North America region. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across North America, which will result in worsening wildfires, wind patterns, droughts, and more. Below is a summary of mean and peak air temperature values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_tas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>2.908863</td>
+      <td>4.069360</td>
+      <td>5.781022</td>
+      <td>7.837420</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>5.815333</td>
+      <td>8.140252</td>
+      <td>12.699799</td>
+      <td>18.631414</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Near-Surface Specifc Humidity<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/USA_huss_models.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_25_0.png" src="../_images/main_25_0.png" />
+</div>
+</div>
+<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. Just like we saw an increase in precipitation at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, we can also see a drastic increase in the humidity for this area. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_huss.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>0.001608</td>
+      <td>0.002107</td>
+      <td>0.003072</td>
+      <td>0.004313</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>0.003679</td>
+      <td>0.003826</td>
+      <td>0.006504</td>
+      <td>0.008089</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Precipitation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../figures/USA_PR_models.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_29_0.png" src="../_images/main_29_0.png" />
+</div>
+</div>
+<p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extremem weather events.</p>
+<p>These predicitions were interesting to me because usually we associate climate change with heat and drought. However, water is not necessarily being lost, its just that the locations it is concentrated in or not become more extreme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_pr.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>sp1</th>
+      <th>sp2</th>
+      <th>sp3</th>
+      <th>sp5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>4.534512e-07</td>
+      <td>7.872732e-07</td>
+      <td>0.000002</td>
+      <td>0.000004</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Max</td>
+      <td>6.115629e-05</td>
+      <td>3.626463e-05</td>
+      <td>0.000056</td>
+      <td>0.000100</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p>Our analysis lead to some interesting insights into the ways in which Earth will change by the year 2100. By looking at four different models of varying sevarity we can further see what potential outcomes there might be. We observed and discussed changes to surface air temperatures, humidity, and precipitation. In the best case scenario, we can expect 2.6 degrees warming difference from the historical averages (1850-1980). In the worse case, we can expect 7.4 degrees warming. Given the benchmark set out by the <a class="reference external" href="https://news.un.org/en/story/2022/05/1117842#:~:text=The%201.5%20%C2%B0C%20target,order%20to%20limit%20global%20warming.">United Nations</a> of 1.5 degrees warming, things are looking grim to say the least. Yet, this should be taken as inspiration for us as a world wide society to enact and call for change as soon as possible.</p>
+<p>In the future, we hope we could make more analysis of key features at a more granular level. We tried to zoom in to the state level, but unfortunately the resolution of the data was not granular enough to make any conclusion. In the future we could see it being possible to source data from another source to get more details at this granularity.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
