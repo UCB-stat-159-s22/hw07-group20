@@ -9,4 +9,6 @@ parts:
 - caption: Exploratory Data Analysis
   chapters:
   - file: notebooks/CESM_EDA
+- caption: Local Analysis
+  chapters:
   - file: notebooks/United_States
