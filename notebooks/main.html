@@ -423,6 +423,7 @@
 <img alt="../_images/main_11_0.png" src="../_images/main_11_0.png" />
 </div>
 </div>
+<p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 world wide. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across the world, which will result in worsening wildfires, wind patterns, droughts, and more. There is an interestingly resistant to change area around Iceland, which could possibly be due to the Gulf Stream’s cycles being exasterbated where less heat will be brought over to Northern Europe. This could result in an actual decrease in temperatures in that region, which could come with many of its own problems. Below is a summary of mean and peak air temperature values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_tas.csv&#39;</span><span class="p">)</span>
@@ -486,9 +487,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_14_0.png" src="../_images/main_14_0.png" />
+<img alt="../_images/main_15_0.png" src="../_images/main_15_0.png" />
 </div>
 </div>
+<p>This set of plot shows us model predictions in 2100 for world wide Specific Humidity, which is the mass of water vapor per unit mass of air. We can see an increase in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>. On the plots, this is that belt of darkening red around the equator. The general increase in humidity across the world could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_huss.csv&#39;</span><span class="p">)</span>
@@ -552,9 +554,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_17_0.png" src="../_images/main_17_0.png" />
+<img alt="../_images/main_19_0.png" src="../_images/main_19_0.png" />
 </div>
 </div>
+<p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels around the world. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the regions just off of coastlines, and in the Atlantic, can expect a decrease in precipitation. However, in the other three models we can see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extreme weather events.</p>
+<p>These predicitions were interesting to me because usually we associate climate change with heat and drought. However, water is not necessarily being lost, its just that the locations it is concentrated in or not become more extreme.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/ww_pr.csv&#39;</span><span class="p">)</span>
@@ -622,7 +627,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_21_0.png" src="../_images/main_21_0.png" />
+<img alt="../_images/main_24_0.png" src="../_images/main_24_0.png" />
 </div>
 </div>
 <p>Here we have the difference between the historical average Near-Surface Air Temperature (K) and four different model predictions for the year 2100 in the North America region. The lighter regions represent less change in surface air temperature, and vice versa for the darker. We can see that the more northern areas seem to have greater predicted change. This could be due to those regions initally having more snow and ice, which when melted will result in substantially less reflection of incoming sunlight/heat. This process results in this visably larger difference in temperature than the other regions. In general, we expect increases in surface air temperature across North America, which will result in worsening wildfires, wind patterns, droughts, and more. Below is a summary of mean and peak air temperature values.</p>
@@ -689,10 +694,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_25_0.png" src="../_images/main_25_0.png" />
+<img alt="../_images/main_28_0.png" src="../_images/main_28_0.png" />
 </div>
 </div>
-<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. Just like we saw an increase in precipitation at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, we can also see a drastic increase in the humidity for this area. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
+<p>This set of plot shows us model predictions in 2100 for Specific Humidity, which is the mass of water vapor per unit mass of air. Many of the humidity trends seen here can be related to the previously discussed precipitation predictions. We can see drastic increases in humidity at the <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a>, represented on the map by the increasingly yellow line along the bottom by the equator. The general increase in humidity across North America could be due to <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> amongst other natural phenomenons. Below is a summary of average and maximum specific humidity values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_huss.csv&#39;</span><span class="p">)</span>
@@ -756,12 +761,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/main_29_0.png" src="../_images/main_29_0.png" />
+<img alt="../_images/main_32_0.png" src="../_images/main_32_0.png" />
 </div>
 </div>
 <p>Here we have the four model predictions in 2100 for Precipitation <span class="math notranslate nohighlight">\([\frac{kg}{m^{2}s}]\)</span> levels in the North American region. There are a couple of interesting patterns to address here. In the first, or ‘best case’, model we can see that many of the South Western regions of the United States can expect a decrease in precipitation. However, in the other three models we can increasingly see a prediction of increased precipitation. This could be due many things, of which may include a phenomenon known as <a class="reference external" href="https://www.merriam-webster.com/dictionary/evapotranspiration">evapotranspiration</a> where the increase in heat will lead to more water being evaporated out of trees, crops, and the ground. These patterns may also be due to stronger <a class="reference external" href="https://www.climate.gov/enso">El nino events</a>. For all the models, Canada appears to have a steady and slight increase in precipitation while the more Southern part of North America such as Mexico can expect a gradual decrease in precipitation.</p>
-<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extremem weather events.</p>
-<p>These predicitions were interesting to me because usually we associate climate change with heat and drought. However, water is not necessarily being lost, its just that the locations it is concentrated in or not become more extreme.</p>
+<p>There is a very noticable red band on the equator that grows drastically darker with the severity of model. The <a class="reference external" href="https://earthobservatory.nasa.gov/images/703/the-intertropical-convergence-zone#:~:text=The%20Intertropical%20Convergence%20Zone%2C%20or,humidity%20and%20making%20it%20buoyant.">Intertropical Convergence Zone</a> is the region that circles the Earth, near the equator, where the trade winds of the Northern and Southern Hemispheres come together. The intense sun and warm water of the equator heats the air in the ITCZ, raising its humidity and making it buoyant.  We can see that as the model severity increases, the ITCZ is drastically increasing in amount of precipitaion. This can have serious consequences for extreme weather events.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../analysis_data/usa_pr.csv&#39;</span><span class="p">)</span>
